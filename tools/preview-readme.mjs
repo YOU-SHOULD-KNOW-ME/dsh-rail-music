@@ -5,7 +5,11 @@ import { join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
-const repo = process.env.DSH_CHECKOUT ?? 'D:/PythonCode/Agent/deepseek-harness'
+const repo = process.env.DSH_CHECKOUT
+if (!repo) {
+  console.error('DSH_CHECKOUT is required: point it at a deepseek-harness checkout.')
+  process.exit(2)
+}
 const require = createRequire(pathToFileURL(join(repo, 'package.json')))
 const { marked } = await import(pathToFileURL(require.resolve('marked')))
 let html = marked.parse(await readFile(join(root, 'README.md'), 'utf8'), { gfm: true })

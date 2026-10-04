@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.1 — 2026-10-04
+
+- Remove hardcoded local DSH checkout paths from the browser tests and developer tools. They now require an explicit `DSH_CHECKOUT` and exit with a clear message when it is unset.
+- No plugin runtime code changed; `lib/` is identical to 0.3.0.
+
 ## 0.3.0 — 2026-10-04
 
 - Add a platform audio adapter: Windows WASAPI loopback, Linux PulseAudio/PipeWire sink monitors, and macOS routed virtual inputs such as BlackHole 2ch.

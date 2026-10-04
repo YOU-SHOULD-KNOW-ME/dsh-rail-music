@@ -17,7 +17,11 @@ import { join } from 'node:path'
  * checkout, which is also where the harness generator reads the rail's real
  * stylesheet from. Point DSH_CHECKOUT at one to run this.
  */
-const REPO = process.env.DSH_CHECKOUT ?? 'D:/PythonCode/Agent/deepseek-harness'
+const REPO = process.env.DSH_CHECKOUT
+if (!REPO) {
+  console.error('DSH_CHECKOUT is required: point it at a deepseek-harness checkout.')
+  process.exit(2)
+}
 const require = createRequire(pathToFileURL(join(REPO, 'package.json')).href)
 let chromium
 try {

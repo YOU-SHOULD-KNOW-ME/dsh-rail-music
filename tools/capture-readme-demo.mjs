@@ -4,7 +4,11 @@ import { createRequire } from 'node:module'
 import { join } from 'node:path'
 import { pathToFileURL, fileURLToPath } from 'node:url'
 
-const repo = process.env.DSH_CHECKOUT ?? 'D:/PythonCode/Agent/deepseek-harness'
+const repo = process.env.DSH_CHECKOUT
+if (!repo) {
+  console.error('DSH_CHECKOUT is required: point it at a deepseek-harness checkout.')
+  process.exit(2)
+}
 const require = createRequire(pathToFileURL(join(repo, 'package.json')))
 const { chromium } = require('playwright')
 const root = fileURLToPath(new URL('../', import.meta.url))

@@ -1,6 +1,6 @@
 {
   "name": "dsh-rail-music",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "让 DSH 的轮次导航轨道随本机正在播放的音乐律动：彩虹频谱、悬停还原、不占用任何端口。",
   "keywords": [
     "dsh",

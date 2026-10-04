@@ -1,6 +1,8 @@
 # GitHub 发布准备
 
-当前版本：0.3.0。安装产物直接包含 Host 模块与 DSH 原生浏览器工厂，不需要运行客户端构建，也没有 npm 运行依赖。Python 依赖在 `requirements.txt` 中。
+当前版本：0.3.1。安装产物直接包含 Host 模块与 DSH 原生浏览器工厂，不需要运行客户端构建，也没有 npm 运行依赖。Python 依赖在 `requirements.txt` 中。
+
+0.3.1 是补丁版本：移除浏览器测试和开发工具中硬编码的本机 DSH 检出路径，改为要求显式设置 `DSH_CHECKOUT`，未设置时给出明确报错。`lib/` 运行时代码与 0.3.0 完全相同。
 
 0.3.0 增加 Linux monitor 与 macOS 虚拟输入；安装提示词已包含平台前提。Windows 真实采集通过，Linux/macOS 设备选择通过模拟测试，实机录音仍待验收。请保留[平台指南](docs/PLATFORMS.md)和 README 的验证范围说明。
 
@@ -36,9 +38,9 @@ node test\host.lifecycle.mjs
 npm run release:source
 ```
 
-产物：`dist/dsh-rail-music-0.3.0-source.zip`。归档采用明确的文件清单，包含代码、说明、测试、CI 和选定的截图，不包含运行日志、用户 profile、调试抓包、依赖、Python 缓存、生成的 harness 或父目录中的其他项目。
+产物：`dist/dsh-rail-music-0.3.1-source.zip`。归档采用明确的文件清单，包含代码、说明、测试、CI 和选定的截图，不包含运行日志、用户 profile、调试抓包、依赖、Python 缓存、生成的 harness 或父目录中的其他项目。
 
-当前开发目录位于另一个 Git 仓库下面。建议将源码包解压到独立目录，例如 `D:\Projects\dsh-rail-music`，再在那里创建仓库，避免把父项目一同上传。
+源码目录嵌套在另一个 Git 仓库下面，但拥有独立的 `.git`，推送只会包含本插件文件。后续发布直接在同一个源码目录操作，不要再把源码包解压到别处，否则会产生内容重复的平行目录。
 
 ## 3. 配置真实 GitHub 地址
 

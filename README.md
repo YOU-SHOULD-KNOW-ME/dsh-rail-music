@@ -9,7 +9,7 @@
 把电脑正在播放的声音，变成 DSH 对话右侧的一条律动频谱。<br>
 每根刻度跟着自己的频段起伏；你开始导航时，原来的轨道立即接管。
 
-[![Version 0.3.0](https://img.shields.io/badge/version-0.3.0-83e4cf?style=flat-square&labelColor=252936)](CHANGELOG.md)
+[![Version 0.3.1](https://img.shields.io/badge/version-0.3.1-83e4cf?style=flat-square&labelColor=252936)](CHANGELOG.md)
 [![Windows Linux macOS](https://img.shields.io/badge/host-Windows%20%7C%20Linux%20%7C%20macOS-91a7ff?style=flat-square&labelColor=252936)](#兼容性)
 [![DSH Web](https://img.shields.io/badge/DSH-Web-c5a0ff?style=flat-square&labelColor=252936)](#安装)
 [![MIT License](https://img.shields.io/badge/license-MIT-d4d9e6?style=flat-square&labelColor=252936)](LICENSE)

@@ -19,7 +19,11 @@ import { fileURLToPath } from 'node:url'
  *
  *   DSH_CHECKOUT=/path/to/deepseek-harness node tools/build-harness.mjs
  */
-const REPO = process.env.DSH_CHECKOUT ?? 'D:/PythonCode/Agent/deepseek-harness'
+const REPO = process.env.DSH_CHECKOUT
+if (!REPO) {
+  console.error('DSH_CHECKOUT is required: point it at a deepseek-harness checkout.')
+  process.exit(2)
+}
 const OUT = fileURLToPath(new URL('../harness.html', import.meta.url))
 const COUNT = 36
 const SPACING = 10
