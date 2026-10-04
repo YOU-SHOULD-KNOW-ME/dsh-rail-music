@@ -1,0 +1,40 @@
+name: Plugin checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node: ['20', '24']
+        os: [windows-latest, ubuntu-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r requirements.txt
+      - run: npm run check
+      - run: npm test
+      - run: npm run test:dsp
+      - run: npm run test:devices
+      - run: npm pack --dry-run
+  linux-capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r requirements.txt
+      - run: sudo apt-get update && sudo apt-get install -y pulseaudio pulseaudio-utils libpulse0
+      - name: Start an isolated user audio sink
+        run: |
+          pulseaudio --start --exit-idle-time=-1
+          pactl load-module module-null-sink sink_name=rail_ci
+          pactl set-default-sink rail_ci
+      - run: python test/pulse.smoke.py

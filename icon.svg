@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="dsh-rail-music">
+  <rect width="64" height="64" rx="12" fill="#111318"/>
+  <!-- A 10px-pitch ladder of bars, bass warm at the bottom, treble cool at the top. -->
+  <g stroke-linecap="round" stroke-width="3">
+    <line x1="46" y1="10" x2="54" y2="10" stroke="#7c4dff"/>
+    <line x1="36" y1="20" x2="54" y2="20" stroke="#536dfe"/>
+    <line x1="30" y1="30" x2="54" y2="30" stroke="#00bcd4"/>
+    <line x1="20" y1="40" x2="54" y2="40" stroke="#00e676"/>
+    <line x1="14" y1="50" x2="54" y2="50" stroke="#ffd600"/>
+    <line x1="26" y1="60" x2="54" y2="60" stroke="#ff3d00"/>
+  </g>
+</svg>

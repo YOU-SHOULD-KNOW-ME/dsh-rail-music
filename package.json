@@ -1,0 +1,76 @@
+{
+  "name": "dsh-rail-music",
+  "version": "0.3.0",
+  "description": "让 DSH 的轮次导航轨道随本机正在播放的音乐律动：彩虹频谱、悬停还原、不占用任何端口。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "audio",
+    "visualizer",
+    "spectrum",
+    "wasapi",
+    "pulseaudio",
+    "pipewire",
+    "coreaudio",
+    "loopback"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/*.js",
+    "lib/*.py",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "requirements.txt",
+    "GITHUB_RELEASE.md",
+    "COMPATIBILITY.md",
+    "REVIEW_AND_OPTIMIZATION.md",
+    "docs/DEVELOPMENT.md",
+    "docs/PLATFORMS.md",
+    "docs/README_DESIGN.md",
+    "docs/assets/*.png",
+    "docs/assets/demo.gif",
+    "shots/rail-2.png",
+    "shots/review/theme-strip.png",
+    "shots/review/aurora-settings.png",
+    "shots/review/light-settings.png",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "scripts": {
+    "test": "node test/host.regression.mjs",
+    "test:browser": "node test/client.regression.mjs && node test/client.lifecycle.mjs",
+    "test:dsp": "python test/analyser.test.py",
+    "test:devices": "python test/audio_devices.test.py",
+    "check": "node --check lib/index.js && node --check lib/client.js",
+    "release:source": "python tools/release-source.py"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOU-SHOULD-KNOW-ME/dsh-rail-music.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOU-SHOULD-KNOW-ME/dsh-rail-music/issues"
+  },
+  "homepage": "https://github.com/YOU-SHOULD-KNOW-ME/dsh-rail-music#readme"
+}

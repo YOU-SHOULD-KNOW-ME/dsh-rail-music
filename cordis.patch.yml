@@ -1,0 +1,28 @@
+# ============================================================================
+# dsh-rail-music — DSH bundle patch（挂载声明）
+# ============================================================================
+# DSH 启动时按 bundle 层叠叠加各插件的 patch，本文件把 rail-music 的 Host 行
+# 插入 Web profile 的配置树。
+#
+# `dsh.bundle.patch` 指向本文件，是它让这个包在 Plugins 页里出现为一个
+# **可开关的 bundle**；关掉开关时 DSH 会把 disabled 覆盖写进 profile 的
+# cordis.patch.yml，不需要卸载。
+#
+# 安装（不需要手动改 profile patch，也不需要建 junction）：
+#   dsh plugin --profile web add dsh-rail-music          # 从 npm
+#   dsh plugin --profile web add github:YOU/dsh-rail-music
+#   dsh plugin --profile web add link:/绝对路径/dsh-rail-music   # 本地开发
+#
+# 需要指定 Python 解释器、设备或幅度时，在 profile 的 cordis.patch.yml 里
+# 覆盖同一 id 的 config（patch 会替换整个 config 对象，把需要的字段都写上）：
+#
+#   - id: dsh-rail-music
+#     config:
+#       pythonPath: 'C:\Python311\python.exe'
+#       depth: 0.5
+#       barWidth: 28
+# ============================================================================
+
+- insert:
+    - id: dsh-rail-music
+      name: dsh-rail-music

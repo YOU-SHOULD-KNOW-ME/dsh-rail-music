@@ -1,0 +1,35 @@
+# Dependencies (this package deliberately has none, but dev tooling may add some)
+node_modules/
+dist/
+docs/readme-references.json
+*.tgz
+
+# Generated: the offline harness is rebuilt from a DSH checkout by
+# `node tools/build-harness.mjs`, so it is not worth tracking.
+harness.html
+
+# Runtime logs written by the capture helper
+capture.log
+*.log
+
+# Playwright artifacts
+shots/*.png
+shots/review/*.png
+!shots/rail-1.png
+!shots/rail-2.png
+!shots/review/theme-strip.png
+!shots/review/aurora-settings.png
+!shots/review/light-settings.png
+# Browser debugging exports can contain local session details.
+shots/review/*-debug.json
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.pyc
